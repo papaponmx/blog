@@ -22,7 +22,7 @@ This might be obvious for you. Right now I'm working fulltime, doing college par
 
 Thinking that *I'm spending two free hours today with my mentee while I could be earning X dollars from my client.* Makes me quite uncomfortable. Something that worked for me is to decide before hand, how many hours am I allowed to spend this week for eacht role.
 
-If you read *The Seven Habbits of Highly Effective People* I working on something that might help organizing your weeks as the Third Habbit describes.
+If you read *The Seven Habbits of Highly Effective People*, I am designing and developing something that might help organizing your weeks as the Third Habbit describes.
 
 ## People learn in different ways
 
