@@ -39,3 +39,5 @@ The fact that you are solving real problems, even spending your free time learni
 Beware that most of your experiences if you choose so, make you smarter and better. Even your mistakes have value, if you learn from them, you become better, if you share that with us, we all are.
 
 Cheers.
+
+*PS*: If you are and experienced Node JS Dev with extensive experience on SaaS, Distributed Systems and multi-tenant applications I'd love to have you as a mentor. DMs are open at [@papaponmx](https://twitter.com/papaponmx).
