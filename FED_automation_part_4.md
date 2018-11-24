@@ -21,7 +21,7 @@ In this post **we will create part of a system that is part of a bigger one**. W
 
 ## The solution
 
-As developers, we must ensure each release must be in a deployable state. For us, deployable means that all tests are passing and new features work as expected in an production-like environment. On top of that, we need/would like to have a way to get instant feedback about the performance of our next release, there for the proposed solution:
+As developers, we must ensure each release must be in a deployable state. For us, deployable means that all tests are passing and new features work as expected in an production-like environment. On top of that, we need/would like to have a way to get instant feedback about the performance of our next release, therefore the proposed solution:
 
 > Create a system that runs performance tests each time a new release is made.
 
@@ -42,10 +42,8 @@ Here is what our application will do:
 
 * [dotenv](https://www.npmjs.com/package/dotenv). A zero-dependency module that loads environment variables from a `.env` file into `process.env`
 * [NodeJS](https://nodejs.org).
-* [Puppeteer](https://github.com/GoogleChrome/puppeteer). Headless Chrome Node API.
-<!-- * [ShellJS](https://github.com/shelljs/shelljs). Unix shell commands on top of the Node.js API -->
+* [Puppeteer](https://github.com/GoogleChrome/puppeteer). Headless Chrome Node API.<!-- * [ShellJS](https://github.com/shelljs/shelljs). Unix shell commands on top of the Node.js API -->
 * [Lightouse CLI](https://developers.google.com/web/tools/lighthouse/#cli). Audit our application and get the relevant data.
-
 
 ## 1. Developing our Analysis tool
 
@@ -64,10 +62,9 @@ We will runs all tests that Lighthouse has available. This is the order in which
 3. **Run Lighthouse audit**.
 4. **Filter information and send it somewhere it can persist.** This could be either a JSON saved using file system or a Database. As the app matures we'll define it somewhere else
 
-
 ```javascript
 /**
- * perfAudits.js
+ * puppeteerPerformance.js
 */
 
 'use strict';
@@ -81,6 +78,10 @@ const lighthouse = require( 'lighthouse' );
 const { APP_URL } = proccess.env;
 // 1.
 
+const flags = {
+  output: 'json'
+};
+
 const launchChromeAndRunLighthouse = ( url, flags, config = null ) => {
   return chromeLauncher.launch()
     .then( chrome => {
@@ -93,15 +94,12 @@ const launchChromeAndRunLighthouse = ( url, flags, config = null ) => {
     } );
 }
 
-const flags = {
-  output: 'json'
-};
 
 // 2.
 launchChromeAndRunLighthouse( APP_URL, flags )
 // 3.
   .then( results => {
-     fs.writeFile( './result.json', JSON.stringify(results), function ( err ) {
+     fs.writeFile( './results.json', JSON.stringify(results), function ( err ) {
         if ( err ) {
           return console.log( err );
         }
@@ -116,15 +114,30 @@ Note that the `results` variable could be sent to a database and be stored for h
 In this case, we'll just save it as a JSON file
 <!-- ### Running performance tests -->
 
-## 2. Creating our Github Action
+## 2. Not Creating our Github Action
 
-**Note**: *At this time, Github actions are in public, beta, so please use this with caution, I'll update this post when the Github actions are officially released*.
+**Bummer**: *at this time, Github actions are in public, beta, and I am on the wait list. So we will use a Github WebHook instead. If you are in a position to authorize my request, I'll be happy to blog about it.*
 
-Within a [`git-flow`](https://danielkummer.github.io/git-flow-cheatsheet/) context, new releases come from `release` or `hotfix` branches, both of them should point towards. This will be covered in my next blog post.
+I have already written a blog post on [how to setup Github Webhooks](https://dev.to/papaponmx/a-gentle-explanation-of-github-webhooks-----d3e). In this case I'll create a Heroku app in and use that url for the URL settup.
+
+Now we need to create a Simple Express Application that runs tests everytime a request is recieved.
+
+```Javascript
+
+
+
+
+```
+
+<!-- Within a [`git-flow`](https://danielkummer.github.io/git-flow-cheatsheet/) context, new releases come from `release` or `hotfix` branches, both of them should point towards. This will be covered in my next blog post.
 
 In order to create our action, first we need to add a `Dockerfile` to the application. This is what it looks like.
 
 ```Dockerfile
-FROM alpine
-
-```
+FROM node:alpine as builder
+WORKDIR "/app"
+COPY package.json ./
+RUN npm install
+COPY . .
+RUN npm run tests
+``` -->
