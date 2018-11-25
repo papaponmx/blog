@@ -15,6 +15,8 @@ In this post **we will create part of a system that is part of a bigger one**. W
 
 **Note**: In this post I am assuming that you are quite familiar with Git, [Github Webhooks](https://dev.to/papaponmx/a-gentle-explanation-of-github-webhooks-----d3e), [NodeJS](https://nodejs.org) and Docker.
 
+**NodeJS**: Here is [the repo with all the code](https://github.com/papaponmx/performance-tests).
+
 ## The problem
 
 > ABC Corp has a `SPA` that is core to the business. It needs to perform great on mobile(we will define what great means later). As time goes by, releases become more frequent and there is a pressing need **to ensure that all new releases comply with the `performance budget` assigned to it**
@@ -118,16 +120,94 @@ In this case, we'll just save it as a JSON file
 
 **Bummer**: *at this time, Github actions are in public, beta, and I am on the wait list. So we will use a Github WebHook instead. If you are in a position to authorize my request, I'll be happy to blog about it.*
 
+**NodeJS**: Here is [the repo with all the code](https://github.com/papaponmx/performance-tests).
+
 I have already written a blog post on [how to setup Github Webhooks](https://dev.to/papaponmx/a-gentle-explanation-of-github-webhooks-----d3e). In this case I'll create a Heroku app in and use that url for the URL settup.
 
-Now we need to create a Simple Express Application that runs tests everytime a request is recieved.
+Now we need to create a simple Express Application that runs tests everytime a request is recieved.
+
+We will install express
+
+```shell
+yarn add express
+```
 
 ```Javascript
 
+require('dotenv').config();
 
+const { APP_STAGING_URL, APP_PRODUCTION_URL } = process.env;
 
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const { lighthousePerfAudits } = require('./audits/lighthousePerfAudits');
+
+const app = express();
+const flags = {
+  output: 'json',
+};
+
+app.use(bodyParser.json());
+
+app.post('/run', (req, res) => {
+  // 1. Check secret
+  if (req.headers['x-hub-signature']) {
+    /**
+     * Secret is valid,
+     * run tests and write json data
+     * on both environments
+     */
+    lighthousePerfAudits(APP_PRODUCTION_URL, flags)
+      .then((results) => {
+        fs.writeFile('/production_results.json', JSON.stringify(results), (err) => {
+          if (err) {
+            return console.log(err);
+          }
+          console.log('The file was saved!');
+        });
+      });
+
+    lighthousePerfAudits(APP_STAGING_URL, flags)
+      .then((results) => {
+        fs.writeFile('/staging_results.json', JSON.stringify(results), (err) => {
+          if (err) {
+            return console.log(err);
+          }
+          console.log('The file was saved!');
+        });
+      });
+
+    // send response with 200
+    res.status(200).send();
+  } else {
+    res.status(500).send();
+  }
+  // secret is not valid, return 500
+});
+
+app.listen(process.env.PORT || 8080, () => {
+  console.log('App linstening on ', process.env.PORT || 8080);
+});
 
 ```
+
+## Conclusion
+
+With this instance in place, we can run scripts everytime a push is deployed to the repository and get our relevant metrics in order.
+
+There are some lose ends on the application like:
+
+* Where should this data persist?
+* Is there a way to just plug it into Github?
+* How can we visualize the historic data of our releases performance?
+* What does the fox say?
+
+I'll address those concerns in further posts. I'm also working on an openSource SaaS that solves this questions. You can hit me up on twitter if you have more questions.
+
+**NodeJS**: Here is [the repo with all the code](https://github.com/papaponmx/performance-tests).
+
+Cheers.
 
 <!-- Within a [`git-flow`](https://danielkummer.github.io/git-flow-cheatsheet/) context, new releases come from `release` or `hotfix` branches, both of them should point towards. This will be covered in my next blog post.
 
