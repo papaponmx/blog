@@ -209,6 +209,12 @@ I'll address those concerns in further posts. I'm also working on an openSource 
 
 Cheers.
 
+Further resources:
+
+* [Previous post about Gihub Webhooks](https://dev.to/papaponmx/a-gentle-explanation-of-github-webhooks-----d3e).
+* [Part 3 of this series](https://dev.to/papaponmx/front-end-development-automation-with-puppeteer-part-3-3pl6).
+* [Lighthouse documentation](https://developers.google.com/web/tools/lighthouse/).
+
 <!-- Within a [`git-flow`](https://danielkummer.github.io/git-flow-cheatsheet/) context, new releases come from `release` or `hotfix` branches, both of them should point towards. This will be covered in my next blog post.
 
 In order to create our action, first we need to add a `Dockerfile` to the application. This is what it looks like.
