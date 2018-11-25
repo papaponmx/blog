@@ -1,11 +1,3 @@
----
-title: Front End Development Automation with Puppeteeer. Part 4
-published: false
-description: Running performance tests with Github Actions.
-tags: #webdev #javascript #nodejs #automation
----
-
-# Front End Development Automation with Puppeteer. Part 4
 
 ## Intro
 
@@ -27,16 +19,11 @@ As developers, we must ensure each release must be in a deployable state. For us
 
 > Create a system that runs performance tests each time a new release is made.
 
-## Application outline
 
-Here is what our application will do:
-
-![alt text](./img/App_outline.png "List of steps")
-
-<!-- Our solution will be a NodeJS application that does the foi:
+<!-- Our solution will be a NodeJS application that does the following:
 
 1. **Listen to relevant event using Github actions**. We can acomplish this using [Github Actions](https://developer.github.com/actions/).
-2. **Run performance tests**. Once the request is recieved, an audit will run within a Docker container.
+2. **Run performance tests**. Once the request is received, an audit will run within a Docker container.
 3. **Generate a report**. I'll design this an develop it in another post.
 4. **Put a link on the README.md**. I'll design this an develop it in another post. -->
 
