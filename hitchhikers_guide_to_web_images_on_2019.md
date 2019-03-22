@@ -42,7 +42,7 @@ This attribute is similar to `src`, but used to define multiple images `src`, th
 
 Declare the **attribute once with multiple images and a src as a default**. Check original source at [webkit.org](https://webkit.org/demos/srcset/). 
 
-```
+```HTML
 <img 
   src="image-src.png" 
   srcset="image-1x.png 1x, 
@@ -159,10 +159,10 @@ You can check an animated [Skeleton Screen with CSS](https://codepen.io/oslego/p
 ## Further resources
 
  * [MDN Mobile Optimization](https://moz.com/learn/seo/mobile-optimization)
- * [Google's Mobile Testing Tool](https://search.google.com/test/mobile-friendly)
- * [Website Speed Test Image Analysis Tool](https://webspeedtest.cloudinary.com/)
- * [HTML5 Cheat Sheet](https://www.wpkube.com/html5-cheat-sheet/)
- * []()
+ * [Google's Mobile Testing Tool](https://search.google.com/test/mobile-friendly).
+ * [Website Speed Test Image Analysis Tool](https://webspeedtest.cloudinary.com/).
+ * [HTML5 Cheat Sheet](https://www.wpkube.com/html5-cheat-sheet/).
+ * [Learn How to automate your image optimization process with Lepto](https://dev.to/dimitrinicolas/learn-how-to-automate-your-image-optimization-process-with-lepto-890?utm_source=additional_box&utm_medium=internal&utm_campaign=regular&booster_org=) by [Dimitry Nicholas](https://dev.to/dimitrinicolas).
  * []()
  * []()
  * []()
