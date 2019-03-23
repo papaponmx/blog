@@ -152,9 +152,10 @@ So an skeleton can be as simple as
 ```
 
 You can check an animated [Skeleton Screen with CSS](https://codepen.io/oslego/pen/XdvWmd) or [`:empty` at MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:empty).
-  
 
-## Automating strategies
+##  Introduce WebP
+
+WebP is an image format designed for the web, it was released on September 2010 and other than Safari, now it is widely [supported on most modern browsers](https://caniuse.com/#search=webp). If you check your profile picture on [dev.to](dev.to/), you might find that it is already using it. I'll list a few articles in the last part.
 
 ## Further resources
 
@@ -163,15 +164,11 @@ You can check an animated [Skeleton Screen with CSS](https://codepen.io/oslego/p
  * [Website Speed Test Image Analysis Tool](https://webspeedtest.cloudinary.com/).
  * [HTML5 Cheat Sheet](https://www.wpkube.com/html5-cheat-sheet/).
  * [Learn How to automate your image optimization process with Lepto](https://dev.to/dimitrinicolas/learn-how-to-automate-your-image-optimization-process-with-lepto-890?utm_source=additional_box&utm_medium=internal&utm_campaign=regular&booster_org=) by [Dimitry Nicholas](https://dev.to/dimitrinicolas).
- * []()
- * []()
- * []()
- * []()
- * []()
- * []()
- * []()
- * []()
- * []()
+ * [Automated image Editing, Optimization and Analysis via CLI and a web interface](https://github.com/leptojs/lepto).
+ * [Gatsby Image](https://www.gatsbyjs.org/packages/gatsby-image/).
+ * Lozard JS: Highly performant, light ~1kb and configurable lazy loader in pure JS with no dependencies for responsive images, iframes and more [https://apoorv.pro/lozad.js/demo/](https://apoorv.pro/lozad.js/demo/)
+ * Article about WebP on [Google Developers.](https://developers.google.com/speed/webp/).
+ * [WebP on Wikipedia](https://en.wikipedia.org/wiki/WebP).
 
 That's all folks, thanks to making it to the very end, keep on learning. 
 
