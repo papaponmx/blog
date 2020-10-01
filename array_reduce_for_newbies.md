@@ -1,24 +1,33 @@
 # Array.reduce() for newbies
 
-Prerequisites.
+---
+title: Array.reduce() for newbies
+published: false
+description: A beginner friendly explanation on how to use  Array.reduce() that you actually understand.
+tags: #javascript #webdev #codenewbie
+---
+
+### Prerequisites.
 In order to get the most out of this post, it is important for you to be familiar with:
 
-Functions.
-Parameters.
-Callback functions.
-How return works.
-JavaScript Data types.
-Other array methods like Array.filter or Array.sort
+- Functions.
+- Parameters.
+- Callback functions.
+- How return works.
+- JavaScript Data types.
+- Other Array methods like `Array.filter` or `Array.sort`.
+
+--- 
 
 Let's start with a first principles approach and go to the dictionary. According to Dictionary.com, to reduce means:
 
 > 1. To bring down to a smaller extent, size, amount, number, etc.
 > 2. To lower in degree, intensity, etc.:
 
-** SYNONYMS FOR REDUCE **
+**Synonyms for reduce**
 diminish, decrease, shorten, abridge, curtail, contract, retrench.
 
-#Key terms
+## Key terms
 Reducer
 Parameters
 Accumulator (acc)
