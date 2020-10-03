@@ -7,6 +7,10 @@ description: A beginner friendly explanation on how to use  Array.reduce() that 
 tags: #javascript #webdev #codenewbie
 ---
 
+
+
+In this article will start by getting familiar with some key terms that will make the `Array.reduce` easier to understand.
+
 ### Prerequisites.
 In order to get the most out of this post, it is important for you to be familiar with:
 
@@ -17,8 +21,6 @@ In order to get the most out of this post, it is important for you to be familia
 - Other Array methods like `Array.filter` or `Array.sort`.
 
 --- 
-
-We will start by getting familiar with some key terms that will make the rest easier to understand.
 
 Let's start with a first principles approach and go to the dictionary. According to Dictionary.com, to reduce means:
 
@@ -55,8 +57,6 @@ console.log('Hihest number is ', number);
 Now that we know what a reducer function is, let us explore how `Array.reduce` works.
 
 > `Array.reduce` is a method that executes a *reducer function* on each element of the array, resulting in single output value.
-
-
 
 
 <!--
