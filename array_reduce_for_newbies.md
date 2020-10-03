@@ -10,8 +10,7 @@ tags: #javascript #webdev #codenewbie
 ### Prerequisites.
 In order to get the most out of this post, it is important for you to be familiar with:
 
-- Functions.
-- Parameters.
+- Using functions with parameters.
 - Callback functions.
 - How return works.
 - JavaScript Data types.
@@ -19,6 +18,7 @@ In order to get the most out of this post, it is important for you to be familia
 
 --- 
 
+We will start by getting familiar with some key terms that will make the rest easier to understand.
 
 Let's start with a first principles approach and go to the dictionary. According to Dictionary.com, to reduce means:
 
@@ -28,9 +28,33 @@ Let's start with a first principles approach and go to the dictionary. According
 **Synonyms for reduce**
 diminish, decrease, shorten, abridge, curtail, contract, retrench.
 
-With this in mind, let's start with another 
+With this in mind, it now easier to understand what a reducer function is. Simply put, a **reducer function reduces *n* input items to a single return value**.
 
-Array.reduce is a method that executes a *reducer function* (a function that we provide, in order to extract some vlaue) on each element of the array, resulting in single output value.
+Here is an example of a simple function returning the highest number in an array:
+
+```
+const numbers = [3, 4, 10, 1, 4, 3];
+
+const reducerFunction = (numbersArray) => {
+    let highestNumber;
+    
+  for (const singleNumber of number) {
+    if (!highestNumber || highestNumber < singleNumber) {
+        highestNumber = singleNumber;
+    }
+  }
+  return highestNumber;
+}
+
+console.log('Hihest number is ', number);
+```
+
+
+---
+
+Now that we know what a reducer function is, let us explore how `Array.reduce` works.
+
+> `Array.reduce` is a method that executes a *reducer function* on each element of the array, resulting in single output value.
 
 
 
