@@ -1,5 +1,3 @@
-# Array.reduce() for newbies
-
 ---
 title: Array.reduce() for newbies
 published: false
@@ -27,10 +25,10 @@ In this article will start by getting familiar with some key terms that will mak
 Let's start with a first principles approach and go to the dictionary. According to Dictionary.com, to reduce means:
 
 > 1. To bring down to a smaller extent, size, amount, number, etc.
-> 2. To lower in degree, intensity, etc.:
+> 2. To lower in degree, intensity, etc.
 
-**Synonyms for reduce**
-diminish, decrease, shorten, abridge, curtail, contract, retrench.
+> **Synonyms for reduce**
+> diminish, decrease, shorten, abridge, curtail, contract, retrench.
 
 With this in mind, it now easier to understand what a reducer function is. Simply put, a **reducer function reduces *n* input items to a single return value**.
 
@@ -48,11 +46,7 @@ According to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 
 > `Array.reduce` is a method that executes a *reducer function* on each element of the array, resulting in single output value.
 
-
----
-
-
-Array.reduce takes in two parameters:
+`Array.reduce` takes in two parameters:
 
 1. A reducer function.
 2. An initial value for the accumulator.
@@ -76,10 +70,10 @@ The reducer function we provide to `Array.reduce` is executed on each element of
 Now that we have the basic concepts. Let's walk trought a few examples.
 
 
-## Examples of Array.reduce in JavaScript:
+## Examples of `Array.reduce` in JavaScript:
 
 
-### Get the highest number in an array using Array.reduce
+### Get the highest number in an array using `Array.reduce`
 
 
 In this example, we will: Use `Array.reduce` and define our own **reducer** function with an **accumulator** in order to get the highest number in an array:
@@ -167,12 +161,5 @@ Other resources:
 
 
 That's all folks. Thanks for taking the time for learning this article. 
-I teach working professionales to code so they can get their first job in tech. 
-If you have any questions drop them in a comment below or you can [DM me on Twitter](https://twitter.com/papaponmx).
- 
-
- 
-
-
-
-
+I teach working professionals to code so they can get their first job in tech. 
+If you further questions, you can ask here or [DM me on Twitter](https://twitter.com/papaponmx).
