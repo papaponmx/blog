@@ -161,3 +161,18 @@ console.log(average) // 39.37
 ```
 
 
+Other resources:
+- [Array.protype.reduce on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce).
+- [Array.reduce on W3C](https://www.w3schools.com/jsref/jsref_reduce.asp).
+
+
+That's all folks. Thanks for taking the time for learning this article. 
+I teach working professionales to code so they can get their first job in tech. 
+If you have any questions drop them in a comment below or you can [DM me on Twitter](https://twitter.com/papaponmx).
+ 
+
+ 
+
+
+
+
