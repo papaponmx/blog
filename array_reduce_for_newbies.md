@@ -73,11 +73,16 @@ The reducer function we provide to `Array.reduce` is executed on each element of
 3. currentIndex. Current index of the array.
 4. sourceArray. This is the array that we want to reduce.
 
-### 
-
-Let's walk trought an example of a **reducer** function that uses an **accumulator** in order to return the highest number in an array:
+Now that we have the basic concepts. Let's walk trought a few examples.
 
 
+## Examples of Array.reduce in JavaScript:
+
+
+### Get the highest number in an array using Array.reduce
+
+
+In this example, we will: Use `Array.reduce` and define our own **reducer** function with an **accumulator** in order to get the highest number in an array:
 
 ```javascript
 
@@ -87,7 +92,7 @@ Let's walk trought an example of a **reducer** function that uses an **accumulat
  * 1. Define an array of numbers.
  * 2. We declare the reducer function that will be applied to each element of the array.
  * 3. Within the reducer function, if the currentItem is greater than the accumulator, we will return the currentItem.
- * 4. We invoke numbers.reduce() passing our reducer function as a first parameter and 0 as an initial value for our accumulator. 
+ * 4. We invoke numbers.reduce() passing our reducer function as a first parameter and 0 as an initial value for our accumulator. * 5. We store the value returned by numbers.reduce() in a variable called average.
  */
 
 
@@ -96,21 +101,63 @@ const numbers = [3, 4, 10, 1, 4, 3]; // 1.
 const reducerFunction = (accumulator, currentItem, currentIndex, sourceArray) => { // 2. 
     if (accumulator < currentItem) {
         return currentItem; // 3.
-    } 
+    }
     return accumulator; // 🤓 Notice that the value that we return in the reducer function, will be the value of the accumulator the next time the reducer function is invoked.
 }
 
 
-const highestNumber = numbers.reduce(reducerFunction, 0); // 4. Notice that 0 is the initial value for our accumulator.
+const highestNumber = numbers.reduce(reducerFunction, 0); // 4 and 5. Notice that 0 is the initial value for our accumulator.
 
-
-console.log('Highest number is ', highestNumber);
+console.log('Highest number is ', highestNumber); // 10
 ```
 
-## Examples of Array.reduce in JavaScript:
 
-## Get total of a list using Array.reduce
-Imagine we are at a
+### Finding an Average with the Array.reduce
 
-## Finding an Average with the Array.reduce
+Imagine you have an array of products coming from the back end. In this example we will get the average price of a product in an array.
+
+```javascript
+
+
+/**
+ * One more time, let's break it down step by step:
+ 
+ * 1. Define an array of products.
+ * 2. We declare the reducer function that will be applied to each element of the array.
+ * 3. Within the reducer function, we summ the price of each product to the total.
+ * 4. When we reached the last item in the array, we devide it by the number of elements in the array..
+ * 5. We invoke products.reduce() passing our reducer function as a first parameter and 0 as an initial value for our accumulator which now is called total. 
+ * 6. We store the value returned by products.reduce() in a variable called average.
+ 
+ */
+const products = [ // 1.
+  {
+    name: "apple",
+    price: 29.76, 
+  },
+  {
+    name: "pineapple",
+    price: 41.85,
+  },
+  {
+    name: "melon",
+    price: 46.5
+  }
+];
+
+const reducerFunction = (total, product, index, array) => { // 2.
+  total += product.price; // 3.
+  if( index === array.length - 1) { // 4.
+    return total / array.length;
+  } else { 
+    return total; 
+  }
+}
+
+const average = products.reduce(reducerFunction, 0); //5 and 6.
+
+console.log(average) // 39.37
+
+```
+
 
